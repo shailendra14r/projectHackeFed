@@ -1,0 +1,60 @@
+body {
+  background-color: rgb(169, 168, 168) smoke;
+}
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.signup-page {
+  background-color: #fff2e1;
+  width: 500px;
+  height: 700px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.signup-top {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(2, 65, 36);
+}
+.signup-middle {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-middle div {
+  margin-bottom: 10px;
+}
+
+.login-bottom {
+}
+
+.bottom-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(2, 65, 36);
+}
+.bottom-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom-icons {
+  margin-right: 5px;
+  color: none;
+}
+
+Button {
+  margin-top: 20px !important;
+  margin-left: 70px !important;
+}
+#outlined-basic {
+  background-color: white;
+}

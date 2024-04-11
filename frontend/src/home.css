@@ -1,0 +1,21 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cards {
+  margin-top: 100px !important;
+  margin-right: 40px !important;
+
+  padding: none !important;
+}
+.total-life {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  color: rgb(2, 65, 36);
+}
+.cards {
+  background-color: #ead8c0 !important;
+}
