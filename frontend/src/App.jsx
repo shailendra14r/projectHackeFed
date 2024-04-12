@@ -1,36 +1,20 @@
-import logo from "./logo.svg";
+import logo from "./components/logo.svg";
 import "./App.css";
-
-import Header from "./header.jsx";
-import Login from "./login.jsx";
-import SignUP from "./sing-up.jsx";
-
-import { Switch } from "@mui/material";
-import Home from "./homePage.jsx";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/header.jsx";
+import Login from "./components/login.jsx";
+import SignUP from "./components/sing-up.jsx";
+import Home from "./components/homePage.jsx";
+import {Routes,Route} from 'react-router-dom';
 
 function App() {
   return (
     <div>
       <Header />
-      {/* <SignUP /> */}
-      {/* <Home /> */}
-      <Login />
-
-      {/* <Router>
-        <Header />
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route> */}
-      {/* <Route path="/signIN">
-            <Login />
-          </Route>
-          <Route path="/signUP">
-            <SignUP />
-          </Route> */}
-      {/* </Switch>
-      </Router> */}
+      <Routes>
+        <Route path="/" index element={<Home></Home>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<SignUP></SignUP>}></Route>
+      </Routes>
     </div>
   );
 }

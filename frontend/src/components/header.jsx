@@ -1,4 +1,4 @@
-import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+
 import Img from "./logo.png";
 import "./header.css";
 import { Link } from "react-router-dom";
