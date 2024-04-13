@@ -6,7 +6,7 @@ import donor3 from "./Rectangle 28.png";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import InputLabel from "@mui/material/InputLabel";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import arrow from "./Vector.png";
@@ -50,31 +50,52 @@ const DonarHome = () => {
 
   <TextField value={city} label="city" onChange={e=>setCity(e.target.value)}></TextField>
 
-  <Select
-    sx={{color:"black"}}
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    value={organ}
-    label={"Age"}
-    onChange={(e)=>setOrgans(e.target.value)}
-    >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
-  </Select>
+  {/* <Select
+      sx={{color:"black"}}
+      labelId="demo-simple-select-label"
+      id="demo-simple-select"
+      value={organ}
+      label={"Organ"}
+      onChange={(e)=>setOrgans(e.target.value)}
+      >
+      {
+        organs.map((val)=> <MenuItem value={val}>{val}</MenuItem> )
+      }
+    </Select> */}
 
 
-  <Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    value={bloodGroup}
-    label="Blood Group"
-    onChange={(e)=>setBloodgeoup(e.target.value)}
+  <FormControl sx={{my:1.5}}>
+    <InputLabel id="demo-simple-select-label" className="select-btn">Organ</InputLabel>
+    <Select
+      sx={{color:"black"}}
+      labelId="demo-simple-select-label"
+      id="demo-simple-select"
+      value={organ}
+      label={"Organ"}
+      onChange={(e)=>setOrgans(e.target.value)}
+      >
+      {
+        organs.map((val)=> <MenuItem value={val}>{val}</MenuItem> )
+      }
+    </Select>
+  </FormControl>
+
+  <FormControl sx={{my:1.5}}>
+    <InputLabel id="demo-simple-select-label">Blood Group</InputLabel>
+    <Select
+      labelId="demo-simple-select-label"
+      id="demo-simple-select"
+      className="select-btn"
+      value={bloodGroup}
+      label="Blood Group"
+      onChange={(e)=>setBloodgeoup(e.target.value)}
     >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
-  </Select>
+        {
+          bloodTypes.map((val)=> <MenuItem value={val}>{val}</MenuItem>)
+        }
+    </Select>
+  </FormControl>
+
 </div>
 
         <Button

@@ -128,9 +128,9 @@ export default function MediaCard() {
           </Card>
         </div>
       </div>
-      <div className="updates">
-        <div className="heading ">
-          <div class="h-1">
+      <div className="updates row">
+        <div className="heading col-8 offset-2" style={{maxWidth:"700px"}} >
+          <div class="h-1" >
             Organ Procurement and Transplantation Network Modernization
             Initiative
           </div>
@@ -138,7 +138,7 @@ export default function MediaCard() {
           <br />
           <br />
         </div>
-        <div class="middle ">
+        <div class="middle col-8 offset-2"  style={{maxWidth:"700px"}}>
           <Alert severity="info">
             <div class="h-2"> Updates</div>
             <br />
@@ -151,7 +151,7 @@ export default function MediaCard() {
           </Alert>
         </div>
 
-        <div class="bottom ">
+        <div class="bottom col-8 offset-2"  style={{maxWidth:"700px"}}>
           <p>
             On March 22, 2023, HRSA launched the Organ Procurement and
             Transplantation Network (OPTN) Modernization Initiative to better
@@ -171,7 +171,8 @@ export default function MediaCard() {
           </p>
         </div>
       </div>
-
+       <br/>
+       <br/>
       <div className="process">
         <div className="process-1 box">
           <p style={{ fontSize: "2rem", fontWeight: "600" }}>

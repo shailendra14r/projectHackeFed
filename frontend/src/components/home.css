@@ -74,7 +74,7 @@
   min-width: 100vw;
   max-height: 500px;
   margin-top: 50px !important;
-  margin-left: 400px !important;
+  /* margin-left: 400px !important; */
 }
 .heading {
   max-width: 800px !important;
