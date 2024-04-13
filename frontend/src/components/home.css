@@ -18,6 +18,21 @@
 }
 .cards {
   background-color: #ead8c0 !important;
+  border-radius: 12px;
+  border: 2px solid black;
+}
+.cards>*{
+  border-radius: 12px;
+}
+.cards img{
+  border-radius: 12px;
+}
+.cards .MuiCardMedia-root{
+  border-radius: 12px;
+  border-radius: 12px 12px 0px 0px;
+}
+.cards .MuiPaper-root{
+  border-radius: 12px;
 }
 .background-card {
   background-color: #eaf6fb;
@@ -46,11 +61,13 @@
 .card-title {
   color: rgb(2, 65, 36) !important;
   display: flex;
+  font-weight: 700 !important;
   align-items: center;
+  margin-top: 5px;
   justify-content: center;
 }
 .card-content {
-  color: rgb(5, 121, 67) !important;
+  color: black !important;
   font-style: bold !important;
 }
 .updates {

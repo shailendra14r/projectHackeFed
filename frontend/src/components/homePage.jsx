@@ -65,7 +65,6 @@ export default function MediaCard() {
               <Typography
                 className="card-content"
                 variant="body2"
-                color="text.secondary"
               >
                 People who donate organs are blessed as they give others a
                 second chance at life for others. It is in your hands to pass on
