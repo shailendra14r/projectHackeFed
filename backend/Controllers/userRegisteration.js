@@ -1,5 +1,4 @@
 const User = require("../MongoDB/UserSchema.js");
-const ProfessionModel = require("../MongoDB/professionSchema.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const {generateOtp,sendByEmail} = require('./SendOtp.js');

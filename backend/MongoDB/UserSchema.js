@@ -10,31 +10,17 @@ const USER = new Schema ({
         type: String,
         required: true
     },
-    organisation:{
+    hospital:{
         type:String,
-        default:"Not Set"
+        default:"NA"
     },
-    designation:{
+    organ:{
         type:String,
-        default:"Venom Code User"
-    },
-    posts:{
-        type:[{type:mongoose.SchemaTypes.ObjectId,ref:"POSTS"}]
-    },
-    savedpost:{
-        type:[{type:mongoose.SchemaTypes.ObjectId,ref:"POSTS"}]
+        default:"NA"
     },
     email: {
         type: String,
         default: null
-    },
-    phone: {
-        type: String,
-        default: null
-    },
-    username: {
-        type: String,
-        required: true
     },
     password: {
         type: String
@@ -49,12 +35,9 @@ const USER = new Schema ({
     },
     profilePicture: {
         type: String,
-        default: "http://res.cloudinary.com/dcnvvzsdh/image/upload/v1701096607/venomcode/ay07lxp5mxbsiciluo2m.jpg"
+        // default: "http://res.cloudinary.com/dcnvvzsdh/image/upload/v1701096607/venomcode/ay07lxp5mxbsiciluo2m.jpg"
     },
-    skills: {
-        type: [String]
-    },
-    likedPost: {
+    illness: {
         type: [String]
     },
     following: {
@@ -63,20 +46,12 @@ const USER = new Schema ({
     followers: {
         type:[String]
     },
-    country: {
+    state: {
         type: String,
     },
     city: {
         type: String,
         default:"Not Set"
-    },
-    bio:{
-        type:String,
-        default:"Hiii !! I am Venom Code User."
-    },
-    exp:{
-        type:Number,
-        default:0
     },
     googleUser:{
         type:Boolean,
