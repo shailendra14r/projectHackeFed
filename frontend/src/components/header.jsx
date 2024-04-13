@@ -13,14 +13,12 @@ import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useDispatch, useSelector } from "react-redux";
 
-
-
 const Navbar = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
-  const user = useSelector(state=>state.user.user);
+  const user = useSelector((state) => state.user.user);
 
   const langKey = useSelector((store) => store.lang.lang);
 
@@ -57,11 +55,10 @@ const Navbar = () => {
           </li>
         </ul>
 
-
         <ul className="flex items-center justify-between px-6 gap-x-4">
           <li className="cursor-pointer">OPTION 2</li>
           <li className="cursor-pointer" style={{ minWidth: "4rem" }}>
-          OPTION 1
+            OPTION 1
           </li>
         </ul>
         <div style={{ flex: 1 }}></div>
@@ -105,7 +102,13 @@ const Navbar = () => {
           </Button>
         ) : (
           <div className="flex gap-x-4">
-            <Avatar onClick={() => navigate("/profile")} className="cursor-pointer">{user?.name}</Avatar>
+            <Avatar
+              onClick={() => navigate("/show")}
+              className="cursor-pointer"
+            >
+              {user?.name}
+            </Avatar>
+
             <button
               style={{
                 color: "black",
@@ -115,7 +118,7 @@ const Navbar = () => {
                 minWidth: "8rem",
               }}
             >
-             Match
+              Match
             </button>
           </div>
         )}

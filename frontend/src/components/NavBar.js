@@ -5,7 +5,7 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { Button, Avatar, Icon } from "@mui/material";
 import { Sidebar } from "keep-react";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   Chat,
   SignIn,
@@ -19,7 +19,6 @@ import {
   Bell,
   Book,
 } from "phosphor-react";
-
 
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
@@ -55,79 +54,63 @@ const Navbar = () => {
     location.current = window.location;
   }, []);
 
-
-
-  
-
   return (
     <>
-        <div className="drawerOpener">
-          <Drawer anchor="left" open={isDrawerOpen}>
-            <div
-              onClick={() => setDrawerOpen(!isDrawerOpen)}
-              className="drawerClose"
-            >
-              <IconButton>
-                <ArrowBackIosRoundedIcon></ArrowBackIosRoundedIcon>
-              </IconButton>
-
-            </div>
-            <div className="drawer">
-              <Sidebar aria-label="Sidebar with multi-level dropdown example">
-          
-                  <span
-                    className=""
-                    style={{
-                      "font-weight": 700,
-                      "font-size": "1.4rem",
-                      marginLeft: "4px",
-                    }}
-                  >
-                    E-
-                  </span>
-                  <span
-                    className=""
-                    style={{
-                      "font-weight": 800,
-                      color: "#1C8765",
-                      "font-size": "1.4rem",
-                    }}
-                  >
-                    Navodit
-                  </span>
-                  <div
-                    onClick={() => setDrawerOpen(!isDrawerOpen)}
-                  >
-                    <Link to={"/sharepost"}>
-                      <Sidebar.Item icon={<Note size={24} />}>
-                        Home
-                      </Sidebar.Item>
-                    </Link>
-                    <Link to={"/sharepost"}>
-                      <Sidebar.Item icon={<Note size={24} />}>
-                        Donar
-                      </Sidebar.Item>
-                    </Link>
-                    <Link to={"/sharepost"}>
-                      <Sidebar.Item icon={<Note size={24} />}>
-                        Blood Donars
-                      </Sidebar.Item>
-                    </Link>
-                    <Link to={"/sharepost"}>
-                      <Sidebar.Item icon={<Note size={24} />}>
-                        Logout
-                      </Sidebar.Item>
-                    </Link>
-                    <Link to={"/sharepost"}>
-                      <Sidebar.Item icon={<Note size={24} />}>
-                        Profile
-                      </Sidebar.Item>
-                    </Link>
-                  </div> 
-              </Sidebar>
-            </div>
-          </Drawer>
-        </div>
+      <div className="drawerOpener">
+        <Drawer anchor="left" open={isDrawerOpen}>
+          <div
+            onClick={() => setDrawerOpen(!isDrawerOpen)}
+            className="drawerClose"
+          >
+            <IconButton>
+              <ArrowBackIosRoundedIcon></ArrowBackIosRoundedIcon>
+            </IconButton>
+          </div>
+          <div className="drawer">
+            <Sidebar aria-label="Sidebar with multi-level dropdown example">
+              <span
+                className=""
+                style={{
+                  "font-weight": 700,
+                  "font-size": "1.4rem",
+                  marginLeft: "4px",
+                }}
+              >
+                E-
+              </span>
+              <span
+                className=""
+                style={{
+                  "font-weight": 800,
+                  color: "#1C8765",
+                  "font-size": "1.4rem",
+                }}
+              >
+                Navodit
+              </span>
+              <div onClick={() => setDrawerOpen(!isDrawerOpen)}>
+                <Link to={"/sharepost"}>
+                  <Sidebar.Item icon={<Note size={24} />}>Home</Sidebar.Item>
+                </Link>
+                <Link to={"/sharepost"}>
+                  <Sidebar.Item icon={<Note size={24} />}>Donar</Sidebar.Item>
+                </Link>
+                <Link to={"/sharepost"}>
+                  <Sidebar.Item icon={<Note size={24} />}>
+                    Blood Donars
+                  </Sidebar.Item>
+                </Link>
+                <Link to={"/sharepost"}>
+                  <Sidebar.Item icon={<Note size={24} />}>Logout</Sidebar.Item>
+                </Link>
+                <Link to={"/sharepost"}>
+                  <Sidebar.Item icon={<Note size={24} />}>Profile</Sidebar.Item>
+                </Link>
+              </div>
+            </Sidebar>
+          </div>
+        </Drawer>
+      </div>
 
       <nav className="navbar-container">
         <div className="navbar-toolbar">
@@ -136,7 +119,16 @@ const Navbar = () => {
             style={{ minWidth: "9.4rem" }}
             onClick={() => navigate("/")}
           >
-            <li>{<img src={logo} alt="E_navodit" width={"33px"} style={{borderRadius:"50%"}}/>}</li>
+            <li>
+              {
+                <img
+                  src={logo}
+                  alt="E_navodit"
+                  width={"33px"}
+                  style={{ borderRadius: "50%" }}
+                />
+              }
+            </li>
             <li>
               <span
                 className=""
@@ -146,7 +138,7 @@ const Navbar = () => {
                   marginLeft: "4px",
                 }}
               >
-              E-
+                E-
               </span>
               <span
                 className=""
@@ -172,28 +164,35 @@ const Navbar = () => {
           </ul>
 
           <ul className="nav-button">
-            <li className="cursor-pointer nav_link" onClick={() => navigate("/home")}>
+            <li
+              className="cursor-pointer nav_link"
+              onClick={() => navigate("/home")}
+            >
               Home
             </li>
             <Link to="/donarHome">
-              <li className="cursor-pointer nav_link" style={{ minWidth: "4rem" }}>
-               Donors
+              <li
+                className="cursor-pointer nav_link"
+                style={{ minWidth: "4rem" }}
+              >
+                Donors
               </li>
             </Link>
             <Link to="/people">
-              <li className="cursor-pointer nav_link" style={{ minWidth: "4rem" }}>
+              <li
+                className="cursor-pointer nav_link"
+                style={{ minWidth: "4rem" }}
+              >
                 Blood Donars
               </li>
             </Link>
             {/* <Link onClick={()=>{console.log(user.userDB.firstname)}}>
                 CHECK
             </Link> */}
-           
-            
           </ul>
 
           <div style={{ flex: 1 }}></div>
-      
+
           <div style={{ flex: 1 }}></div>
 
           <ul className="nav-icons">
@@ -232,22 +231,19 @@ const Navbar = () => {
             </li> */}
           </ul>
 
-          { user.user ? (
+          {user.user ? (
             <div className="flex gap-x-4">
-            <Avatar
-              sx={{ height: "30px", width: "30px" }}
-              onClick={() => navigate("/profile")}
-
-              src={user.userDB?.profilePicture || user.user?.profilePicture}
-              className="cursor-pointer"
-            ></Avatar>
-          </div>
+              <Avatar
+                sx={{ height: "30px", width: "30px" }}
+                onClick={() => navigate("/show")}
+                src={user.userDB?.profilePicture || user.user?.profilePicture}
+                className="cursor-pointer"
+              ></Avatar>
+            </div>
           ) : (
-             <Button variant="outlined" Link="/login">
-             <Link to="/Login">
-               {"Signin"}
-             </Link>
-           </Button>
+            <Button variant="outlined" Link="/login">
+              <Link to="/Login">{"Signin"}</Link>
+            </Button>
           )}
           <div
             className="drawer-opener"
