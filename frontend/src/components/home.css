@@ -74,7 +74,10 @@
   min-width: 100vw;
   max-height: 500px;
   margin-top: 50px !important;
-  margin-left: 400px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .heading {
   max-width: 800px !important;
@@ -97,21 +100,23 @@
 
 .process {
   display: flex;
+  gap: 2vw;
+  box-sizing: border-box;
+  width: 100vw;
 }
 .box {
   background-color: teal !important;
 }
 .process-1 {
-  min-width: 50vw;
+  min-width: 49vw;
   height: 250px;
-  margin-right: 10px !important;
   display: flex;
   flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
 }
 .process-2 {
-  min-width: 50vw;
+  min-width: 49vw;
   height: 250px;
   display: flex;
   flex-direction: column;

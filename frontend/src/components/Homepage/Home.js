@@ -10,6 +10,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import arrow from "./Vector.png";
+import InputLabel from '@mui/material/InputLabel';
 import { countries, bloodTypes, organs } from "../../utils/HomeData.js";
 import Profile from "./Profile.js";
 import axios from "axios";
@@ -47,9 +48,9 @@ const DonarHome = () => {
       <div className="left">
         <h3>SEARCH</h3>
   <div className="select_upper">
-
   <TextField value={city} label="city" onChange={e=>setCity(e.target.value)}></TextField>
-
+  <FormControl fullWidth className="my-2">
+  <InputLabel id="demo-simple-select-label">Organ</InputLabel>
   <Select
     sx={{color:"black"}}
     labelId="demo-simple-select-label"
@@ -62,8 +63,9 @@ const DonarHome = () => {
     <MenuItem value={20}>Twenty</MenuItem>
     <MenuItem value={30}>Thirty</MenuItem>
   </Select>
-
-
+</FormControl>
+<FormControl>
+  <InputLabel id="demo-simple-select-label">Blood Group</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
@@ -75,6 +77,7 @@ const DonarHome = () => {
     <MenuItem value={20}>Twenty</MenuItem>
     <MenuItem value={30}>Thirty</MenuItem>
   </Select>
+</FormControl>
 </div>
 
         <Button
