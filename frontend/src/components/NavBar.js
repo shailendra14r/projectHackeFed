@@ -178,7 +178,7 @@ const Navbar = () => {
                 Donors
               </li>
             </Link>
-            <Link to="/people">
+            <Link to="/blood_donars">
               <li
                 className="cursor-pointer nav_link"
                 style={{ minWidth: "4rem" }}

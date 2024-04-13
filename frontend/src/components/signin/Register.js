@@ -27,6 +27,7 @@ const Register = ()=>{
             fullwidth
             variant="outlined"
             className="sm-text"  
+            onClick={()=>navigate('/signup')}
           >
             Accepter Registration
           </Button>
