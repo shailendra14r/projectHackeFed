@@ -6,7 +6,7 @@ import InfoIcon from "@mui/icons-material/Info";
 export default function show() {
   return (
     <>
-      <div className="heading-1">Profile Details</div>
+      <div className="heading-1 mt-10">Profile Details</div>
       <div className="main">
         <div className="main-1">
           <div className="card row">

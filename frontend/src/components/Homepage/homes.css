@@ -133,8 +133,5 @@
 }
 .select-btn{
     width: 100%;
-}
-.select_upper>*{
-    width: 70%;
-    margin: 6px 0px;
+    margin: 10px 0px;
 }
