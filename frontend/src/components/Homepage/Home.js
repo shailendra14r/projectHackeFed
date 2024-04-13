@@ -14,9 +14,18 @@ import { countries, bloodTypes, organs } from "../../utils/HomeData.js";
 import Profile from "./Profile.js";
 import axios from "axios";
 import path from "../../path.js";
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { Input } from "@mui/material";
+
 
 const DonarHome = () => {
   const [data, setData] = useState([]);
+ 
+  const [city,setCity] = useState('');
+  const [bloodGroup,setBloodgeoup] = useState("A+");
+  const [organ,setOrgans] = useState("Liver");
 
   const getProfileDate = async () => {
     try {
@@ -37,69 +46,42 @@ const DonarHome = () => {
     <div className="Homepage">
       <div className="left">
         <h3>SEARCH</h3>
+  <div className="select_upper">
 
-        <Autocomplete
-          className="location"
-          id="country-select"
-          sx={{ minWidth: 150 }}
-          options={countries}
-          autoHighlight
-          getOptionLabel={(option) => option.label}
-          renderOption={(props, option) => (
-            <Box
-              component="li"
-              sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
-              {...props}
-            >
-              <img
-                loading="lazy"
-                width="20"
-                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                alt=""
-              />
-              {option.label} ({option.code}) +{option.phone}
-            </Box>
-          )}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Choose a country"
-              inputProps={{
-                ...params.inputProps,
-                autoComplete: "new-password", // disable autocomplete and autofill
-              }}
-            />
-          )}
-        />
+  <TextField value={city} label="city" onChange={e=>setCity(e.target.value)}></TextField>
 
-        <Autocomplete
-          className="location"
-          disablePortal
-          id="blood-type"
-          options={bloodTypes}
-          sx={{ minWidth: 150 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Choose Your Blood Group" />
-          )}
-        />
+  <Select
+    sx={{color:"black"}}
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"
+    value={organ}
+    label={"Age"}
+    onChange={(e)=>setOrgans(e.target.value)}
+    >
+    <MenuItem value={10}>Ten</MenuItem>
+    <MenuItem value={20}>Twenty</MenuItem>
+    <MenuItem value={30}>Thirty</MenuItem>
+  </Select>
 
-        <Autocomplete
-          className="location"
-          disablePortal
-          id="combo-box"
-          options={organs}
-          sx={{ minWidth: 150 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Specify Organ" />
-          )}
-        />
+
+  <Select
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"
+    value={bloodGroup}
+    label="Blood Group"
+    onChange={(e)=>setBloodgeoup(e.target.value)}
+    >
+    <MenuItem value={10}>Ten</MenuItem>
+    <MenuItem value={20}>Twenty</MenuItem>
+    <MenuItem value={30}>Thirty</MenuItem>
+  </Select>
+</div>
 
         <Button
           className="btn button1"
           sx={{ my: 1, minWidth: 150 }}
           variant="contained"
-        >
+          >
           <p>Filter</p>
           <img src={arrow} />
         </Button>
@@ -107,7 +89,7 @@ const DonarHome = () => {
           className="btn button2"
           sx={{ my: 1, minWidth: 150 }}
           variant="outlined"
-        >
+          >
           Reset
         </Button>
       </div>
@@ -146,7 +128,7 @@ const DonarHome = () => {
             Cornea
           </Button>
         </div>
-        <Link to="/show">
+        <div>
           <div className="profiles-container">
             {data
               ? data.map((ele) => {
@@ -158,7 +140,7 @@ const DonarHome = () => {
                 })
               : ""}
           </div>
-        </Link>
+        </div>
       </div>
     </div>
   );

@@ -2,11 +2,13 @@ import React from 'react';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import location_icon from "./location-icon.png"
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile({data}) {
+  console.log(data);
+  const navigate = useNavigate();
   return (
-    <div className="profile">
+    <div className="profile" onClick={()=> navigate(`/show?id=${data?._id}`)}>
       <div className="profile-img">
         <img src={data?.profilePicture} />
       </div>
