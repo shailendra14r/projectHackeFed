@@ -149,7 +149,8 @@ const Signin = () => {
 
         if(response.data.success){
             dispatch(setToken(response.data.token));
-            dispatch(addUser(response.data.msg));
+            console.log("setting user part 1");
+            dispatch(addUser(response.data.userData));
             navigate('../');
             setError("");
         }
@@ -167,7 +168,6 @@ const Signin = () => {
 
 
   const submitHandler = async () => {
-    // if (validate() && isEmpty() && isUserUnique) {
       try{
         
           setload(true);

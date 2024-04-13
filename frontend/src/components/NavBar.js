@@ -5,7 +5,7 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { Button, Avatar, Icon } from "@mui/material";
 import { Sidebar } from "keep-react";
-
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {
   Chat,
   SignIn,
@@ -51,33 +51,16 @@ const Navbar = () => {
 
   const location = useRef();
 
-  const checknotification = async () => {
-    try {
-      const response = await axios.get(
-        path + "checknotification?userId=" + user.user._id
-      );
-      if (response.data.success) {
-        setNotificationBadge(response.data.notifications);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
     location.current = window.location;
   }, []);
 
-  useEffect(() => {
-    checknotification();
-  }, [locationState]);
+
 
   
 
   return (
     <>
-      {window.outerWidth < 750 ? (
-
         <div className="drawerOpener">
           <Drawer anchor="left" open={isDrawerOpen}>
             <div
@@ -91,7 +74,7 @@ const Navbar = () => {
             </div>
             <div className="drawer">
               <Sidebar aria-label="Sidebar with multi-level dropdown example">
-                <Sidebar.Items className="sidebar-Items">
+          
                   <span
                     className=""
                     style={{
@@ -112,104 +95,39 @@ const Navbar = () => {
                   >
                     Navodit
                   </span>
-
-                  <Sidebar.ItemGroup
+                  <div
                     onClick={() => setDrawerOpen(!isDrawerOpen)}
                   >
-                   
-
                     <Link to={"/sharepost"}>
                       <Sidebar.Item icon={<Note size={24} />}>
-                        Share Post
+                        Home
                       </Sidebar.Item>
                     </Link>
-
-                    {/* <Sidebar.Collapse
-                      icon={<ShoppingCart size={24} />}
-                      label="Filter"
-                    >
-                      <Sidebar.Item href="#" icon={<Handbag size={24} />}>
-                        Products
-                      </Sidebar.Item>
-                    </Sidebar.Collapse> */}
-
-                    
-
-                    <Link to="/chat">
-                      <Sidebar.Item icon={<Chat size={24} />}>
-                        Inbox
+                    <Link to={"/sharepost"}>
+                      <Sidebar.Item icon={<Note size={24} />}>
+                        Donar
                       </Sidebar.Item>
                     </Link>
-                    <Link to="/mydirects">
-                      <Sidebar.Item icon={<Lightning size={24} />}>
-                        Directs
+                    <Link to={"/sharepost"}>
+                      <Sidebar.Item icon={<Note size={24} />}>
+                        Blood Donars
                       </Sidebar.Item>
                     </Link>
-                    <Link to="/problems">
-                      <Sidebar.Item icon={<Book size={24} />}>
-                        Problems
-                      </Sidebar.Item>
-                    </Link>
-                    <Link to="/notifications">
-                      <Sidebar.Item
-                        icon={
-                          <Badge badgeContent={notificationBadge}>
-                            <Bell size={24} />
-                          </Badge>
-                        }
-                      >
-                        Notifications
-                      </Sidebar.Item>
-                    </Link>
-
-                    <Link>
-                      <Sidebar.Item
-                        icon={<Sliders size={24} />}
-                        onClick={() => setshowFilterModal(true)}
-                      >
-                        Filters
-                      </Sidebar.Item>
-                    </Link>
-
-                    <Link to={"/search"}>
-                      <Sidebar.Item icon={<SearchIcon />}>Search</Sidebar.Item>
-                    </Link>
-
-                    <Link to="/people">
-                      <Sidebar.Item icon={<UsersThree size={24} />}>
-                        People
-                      </Sidebar.Item>
-                    </Link>
-
-                    {user.user ? (
-                      <Sidebar.Item
-                        onClick={() => {
-                          setShowModal(!showModal);
-                          setDrawerOpen(!isDrawerOpen);
-                        }}
-                        icon={<SignOut size={24} />}
-                      >
+                    <Link to={"/sharepost"}>
+                      <Sidebar.Item icon={<Note size={24} />}>
                         Logout
                       </Sidebar.Item>
-                    ) : (
-                      <Link to="/register">
-                        <Sidebar.Item
-                          onClick={() => setDrawerOpen(!isDrawerOpen)}
-                          icon={<UserPlus size={24} />}
-                        >
-                          Login
-                        </Sidebar.Item>
-                      </Link>
-                    )}
-                  </Sidebar.ItemGroup>
-                </Sidebar.Items>
+                    </Link>
+                    <Link to={"/sharepost"}>
+                      <Sidebar.Item icon={<Note size={24} />}>
+                        Profile
+                      </Sidebar.Item>
+                    </Link>
+                  </div> 
               </Sidebar>
             </div>
           </Drawer>
         </div>
-      ) : (
-        ""
-      )}
 
       <nav className="navbar-container">
         <div className="navbar-toolbar">
@@ -254,19 +172,23 @@ const Navbar = () => {
           </ul>
 
           <ul className="nav-button">
-            <li className="cursor-pointer" onClick={() => navigate("/home")}>
+            <li className="cursor-pointer nav_link" onClick={() => navigate("/home")}>
               Home
             </li>
             <Link to="/donarHome">
-              <li className="cursor-pointer" style={{ minWidth: "4rem" }}>
-              Donors
+              <li className="cursor-pointer nav_link" style={{ minWidth: "4rem" }}>
+               Donors
               </li>
             </Link>
             <Link to="/people">
-              <li className="cursor-pointer" style={{ minWidth: "4rem" }}>
-              Need Blood ?
+              <li className="cursor-pointer nav_link" style={{ minWidth: "4rem" }}>
+                Blood Donars
               </li>
             </Link>
+            <Link onClick={()=>{console.log(user.userDB.firstname)}}>
+                CHECK
+            </Link>
+           
             
           </ul>
 
@@ -315,26 +237,25 @@ const Navbar = () => {
             <Avatar
               sx={{ height: "30px", width: "30px" }}
               onClick={() => navigate("/profile")}
+
               src={user.userDB?.profilePicture || user.user?.profilePicture}
               className="cursor-pointer"
             ></Avatar>
           </div>
           ) : (
-
              <Button variant="outlined" Link="/login">
              <Link to="/Login">
                {"Signin"}
              </Link>
            </Button>
           )}
-
           <div
             className="drawer-opener"
             onClick={() => setDrawerOpen(!isDrawerOpen)}
           >
-            <ArrowForwardIosRoundedIcon
-              sx={{ width: "14px", marginLeft: "4px" }}
-            ></ArrowForwardIosRoundedIcon>
+            <MoreVertIcon
+              sx={{ width: "24px", marginLeft: "4px" }}
+            ></MoreVertIcon>
           </div>
         </div>
       </nav>

@@ -8,6 +8,7 @@ const userSlice = createSlice({
     },
     reducers: {
         addUser: (state, action) => {
+            console.log("adding user part 2",action.payload);
             state.user = action.payload;
             state.userDB = action.payload;
             return;
