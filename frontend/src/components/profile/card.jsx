@@ -15,8 +15,29 @@ import AddLocationIcon from "@mui/icons-material/AddLocation";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import path from "../../path";
+import axios from "axios";
 export default function MediaControlCard() {
   const theme = useTheme();
+  const [serchParams] = useSearchParams();
+  const id = serchParams.get('id');
+  const [data,setData] = useState(false);
+  
+  const getDonarDetails = async ()=>{
+    try{
+      const response = await axios.get(`${path}donar_details?id=${id}`);
+      setData(response.data);
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  React.useEffect(()=>{
+    getDonarDetails();
+  },[]);
+
   return (
     <Card
       sx={{
@@ -39,7 +60,7 @@ export default function MediaControlCard() {
             border: "1px solid black",
             padding: "5px",
           }}
-          image="https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg"
+          image={data?.profilePicture}
           alt="Live from space album cover"
         />
         <Button className="verify" variant="outlined">
@@ -55,7 +76,7 @@ export default function MediaControlCard() {
                 variant="h5"
                 style={{ fontSize: "200%" }}
               >
-                <b style={{ color: "rgb(2, 65, 36)" }}>Utkarsh Singh</b>
+                <b style={{ color: "rgb(2, 65, 36)" }}>{data?.firstname + " " + data?.lastname}</b>
               </Typography>
               <Typography
                 style={{
@@ -76,7 +97,7 @@ export default function MediaControlCard() {
                 color="text.secondary"
                 component="div"
               >
-                <AddLocationIcon /> Noida,UP
+                <AddLocationIcon />{data?.city + " " + data?.state }<br></br> <span className="ml-5">{data?.country}</span>
               </Typography>
             </div>
             <div class="card-content-2" style={{ marginTop: "50px" }}>
@@ -117,13 +138,21 @@ export default function MediaControlCard() {
               <div class="list">
                 <ul>
                   <li style={{ fontSize: "1.1rem", color: "rgb(2, 65, 36)" }}>
-                    Male
+                  {data?.gender}
                   </li>
-                  <li style={{ marginBottom: "5px", color: "rgb(2, 65, 36)" }}>
-                    Suffering from Diabeties
+                  <li style={{ marginBottom: "5px", color: "rgb(2, 65, 36)" }} className="flex flex-wrap">
+                  {
+                    data?.illness ? "Suffering from" : ""
+                  }
+                  
+                  {
+                    data?.illness?.map((ele)=>{
+                      return <span className="bold mx-2">{ele}</span>
+                    })
+                  }
                   </li>
                   <li style={{ marginBottom: "5px", color: "red" }}>
-                    Blood Group:A+
+                    Blood Group:{data?.bloodGroup}
                   </li>
                 </ul>
               </div>
@@ -140,7 +169,7 @@ export default function MediaControlCard() {
             }}
           >
             <VolunteerActivismIcon />
-            &nbsp; Heart, Liver, Eyes
+            &nbsp; {data?.organs?.map(ele=>ele)}
           </Box>
         </CardContent>
       </Box>

@@ -2,7 +2,7 @@ const { userRegisteration,userSignin,getUserName,addExperience} = require("../Co
 const {userLogin,resetPassword, resetLogin,googlesignin,googlesigninUsername} = require("../Controllers/userLogin");
 const express = require("express");
 const { auth } = require("../middleware/auth");
-const { getDonars } = require("../Controllers/donars");
+const { getDonars, getDonarDetails, filterDonars } = require("../Controllers/donars");
 const router = express.Router();
 
 
@@ -24,4 +24,7 @@ router.post('/usergoogle',googlesigninUsername);
 
 //GET 
 router.get('/donars',getDonars);
+router.get('/donar_details',getDonarDetails);
+router.get('/search_donars',filterDonars);
+
 module.exports = router;
