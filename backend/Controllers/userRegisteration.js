@@ -63,11 +63,11 @@ const userSignin = async (req,res)=>{
 
           const salt = await bcrypt.genSalt(10);
           const hashPassword = await bcrypt.hash(password, salt);
-          
+          const profilePicture = gender == "female" ? "https://res.cloudinary.com/dcnvvzsdh/image/upload/v1713006571/samples/cfkri1y7av4mkt14wfjt.jpg" :"https://res.cloudinary.com/dcnvvzsdh/image/upload/v1713006757/x6hnsvphztil2ounapch.jpg";
             let user = await User.create({
               email,password:hashPassword,otp,
               firstname,lastname,gender,dob,city,state,
-              illness,organs,need,bloodGroup,referral
+              illness,organs,need,bloodGroup,referral,profilePicture
             });
             user.password = "*****";
             const token = createToken(user._id);

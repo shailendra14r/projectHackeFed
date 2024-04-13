@@ -4,26 +4,27 @@ import Button from '@mui/material/Button';
 import location_icon from "./location-icon.png"
 
 
-export default function Profile({name, age, img, address}) {
+export default function Profile({data}) {
+  console.log(data);
   return (
     <div className="profile">
       <div className="profile-img">
-        <img src={img} />
+        <img src={data?.profilePicture} />
       </div>
       <div className="profile-details">
         <div className="donor-details">
-          <p className="donor-name">{name}</p>
-          <p className="donor-age">{age} years</p>
+          <p className="donor-name">{data.firstname + " " + data.lastname}</p>
+          <p className="donor-age">{data?.dob} years</p>
           <div className="donor-address">
             <img src={location_icon} />
-            <p>{address}</p>
+            <p>{data.city}{"," + data.state}{"," + data.country}</p>
           </div>
         </div>
         <div className="tags-contact">
           <div className="tags">
-            <Chip className='tag' label="limbs" color="primary" />
-            <Chip className='tag' label="limbs" color="success" />
-            <Chip className='tag' label="renal" color="success" />
+            {
+              data.illness?.map((ele)=>  <Chip className='tag' label={ele} color="secondary" />)
+            }
           </div>
           <Button className="btn button1" sx={{mx:1, my:1, minWidth: 150}} variant="contained">Contact</Button>
         </div>

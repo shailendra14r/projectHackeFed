@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./homes.css";
 import donor1 from "./Rectangle 19.png";
 import donor2 from "./Rectangle 25.png"
@@ -12,10 +12,29 @@ import Button from '@mui/material/Button';
 import arrow from './Vector.png';
 import {countries, bloodTypes, organs} from '../../utils/HomeData.js';
 import Profile from "./Profile.js";
-
+import axios from "axios";
+import path
+ from "../../path.js";
 
 
 const DonarHome = () => {
+
+  const [data,setData] = useState([]);
+
+  const getProfileDate = async ()=>{
+    try{
+      const response = await axios.get(`${path}donars`);
+      if(response.data){
+        setData(response.data);
+      }
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  useEffect(()=>{
+    getProfileDate();
+  },[]);
 
   return (
           <div className="Homepage">
@@ -90,9 +109,13 @@ const DonarHome = () => {
             <Button className="btn button1" sx={{mx:1, my:1, minWidth: 150}} variant="contained">Cornea</Button>
         </div>
         <div className="profiles-container">
-          <Profile name="Jaydee Devine" address="Kailash Hills, Delhi" age={17} img = {donor1}/>
-          <Profile name="Jaydee Devine" address="Kailash Hills, Delhi" age={37} img = {donor2}/>
-          <Profile name="Jaydee Devine" address="Kailash Hills, Delhi" age={26} img = {donor3}/>
+          {
+            data ? 
+            data.map((ele)=>{
+              return <><Profile data={ele}/></>;
+            })
+            :""
+          }
         </div>
       </div>
     </div>

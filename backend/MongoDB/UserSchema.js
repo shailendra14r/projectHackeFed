@@ -53,7 +53,8 @@ const USER = new Schema ({
         default:"Not Set"
     },
     country:{
-        type:String
+        type:String,
+        default:"India"
     }, 
     bloodGroup:{
         type:String
