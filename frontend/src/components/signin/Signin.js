@@ -20,6 +20,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { setToken } from "../../utils/slices/utilitySlice";
 import { Cactus } from "phosphor-react";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 
 const Signin = () => {
@@ -35,40 +40,58 @@ const Signin = () => {
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
   const [dob, setdob] = useState("");
-  const [gender, setgender] = useState("male");
-  const [designation, setdesignation] = useState("");
-  const [organisation, setorganisation] = useState("");
+  const [gender, setgender] = useState("male"); 
   const [city, setcity] = useState("");
-  const [skills, setskills] = useState([]);
-  const [blood,setBlood] = useState("");
+  const [organ,setOrgan] = useState("");
+  
+  const [illness,setIllness] = useState([]);
+  const [currentIllness,setCurrentIllness] = useState("");
+  const [currentOrgan,setCurrentOrgan] = useState("");
+  const [organs,setOrgans] = useState([]);
+
+  const [bloodGroup,setBloodGroup] = useState("");
+  const [referral,setReferral] = useState("");
+
   const [load,setload] = useState(false);
   const [state,setState] = useState("");
   const [disabled,setDisabled] = useState(true);
   const [isUserUnique,setUserUnique] = useState(true);
-  const [aSkill,setASkill] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
    
-  const skillselecthandle = (e) => {
-    console.log(e);
-    if (e.keyCode == "13") {
-      if (e.target.value.length > 0)
-        setskills([...skills, e.target.value.toUpperCase().trim()]);
+ 
+  const illnessSelectHandle = (e)=>{
+    if(e.keyCode == "13"){
+      if(e.target.value.length > 0)
+        setIllness([...illness,e.target.value.toUpperCase().trim()]);
       e.target.value = "";
-      setASkill("");
+      setCurrentIllness("");
     }
-  };
+  }
+  const organsSelectHandle = (event)=>{
+   
+    setOrgans([...organs,event.target.value]);
+  }
 
-  const deleteSkill = (e)=>{
-    let skillTemp = skills;
-    skillTemp = skillTemp.filter((ele)=>{
+  const deleteOrgan = (e)=>{
+    let organTemp = organs;
+    organTemp = organTemp.filter((ele)=>{
       return ele != e;
     })
-    console.log(skillTemp);
-    setskills(skillTemp);
+    setOrgans(organTemp);
+    return;
+  }
+
+  const deleteSkill = (e)=>{
+    let illTemp = illness;
+    illTemp = illTemp.filter((ele)=>{
+      return ele != e;
+    })
+    setIllness(illTemp);
     return;
   }
 
@@ -97,9 +120,7 @@ const Signin = () => {
       !password ||
       !firstname ||
       !lastname ||
-      !dob ||
-      !designation ||
-      skills.length == 0
+      !dob == 0
     ) {
       setError("Mandatory field is Empty. Fill up and try again");
       return false;
@@ -127,22 +148,11 @@ const Signin = () => {
       return;
      }
       setload(true);
-      try{
+       try{
           const response = await axios.post(`${path}signin`,{
-          email,
-          otp,
-          username,
-          password,
-          firstname,
-          gender,
-          lastname,
-          dob,
-          designation,
-          skills,
-          city,
-          organisation,
-          state,
-          blood
+          email,password,otp,
+          firstname,lastname,gender,dob,city,state,
+          illness,organs,need:organ,bloodGroup,referral
         });
 
         console.log(response);
@@ -377,50 +387,81 @@ const Signin = () => {
           <>
             <div className="login-box">
               <div className="login-box-title">Final Step</div>
+
               <div className="login-box-field">
                 <p>Disease</p>
                 <input
-                  onKeyDown={skillselecthandle}
+                  onKeyDown={illnessSelectHandle}
                   placeholder="Any ongoing Treatment or Infection"
-                  value={aSkill}
-                  onChange={(e)=>setASkill(e.target.value)}
+                  value={currentIllness}
+                  onChange={(e)=> setCurrentIllness(e.target.value)}
                 ></input>
               </div>
-
+              
               <div className="skills-array">
-                {skills.map((skill) => (
+                {illness.map((skill) => (
                   <Chip label={skill}  onDelete={()=>deleteSkill(skill)}></Chip>
                 ))}
               </div>
+
                 {
                 donar ? <>
-              <div className="login-box-field">
-                <p>Donation of </p>
-                <input
-                  value={designation}
-                  onChange={(e) => setdesignation(e.target.value)}
-                  placeholder="Organ you want to register for donation ?"
-                  ></input>
+               <div className="login-box-field">
+                <p>Organs to Register</p>
+                <select
+                  value={""}
+                  onChange={(e) => setOrgans([...organs,e.target.value])}
+                >
+                  <option value={""}>Select Organ</option>
+                  <option value={"liver"}>Liver</option>
+                  <option value={"heart"}>Heart</option>
+                  <option value={"eyes"}>Eyes</option>
+                  <option value={"kidney"}>Kidney</option>
+                  <option value={"lungs"}>lungs</option>
+                  {/* <option value={"oshphegus"}>Oshephegus</option> */}
+                </select>
                </div>
+                <div className="skills-array">
+                {organs.map((skill) => (
+                  <Chip label={skill}  onDelete={()=>deleteOrgan(skill)}></Chip>
+                ))}
+              </div>
                 </>:<>
                <div className="login-box-field">
                 <p>Need Of</p>
                 <input
-                  value={designation}
-                  onChange={(e) => setdesignation(e.target.value)}
+                  value={organ}
+                  onChange={(e) => setOrgan(e.target.value)}
                   placeholder="Organ you Need for Transplant ?"
                   ></input>
               </div>
                 </>
                 }
-
+               <div className="login-box-field">
+                <p>Blood Group</p>
+                <select
+                  value={bloodGroup}
+                  onChange={(e) => setBloodGroup(e.target.value)}
+                >
+                  <option value={""}>Select Blood Group</option>
+                  <option value={"A+"}>A+</option>
+                  <option value={"A-"}>A-</option>
+                  <option value={"B+"}>B+</option>
+                  <option value={"B-"}>B-</option>
+                  <option value={"AB+"}>AB+</option>
+                  <option value={"AB-"}>AB-</option>
+                  <option value={"O+"}>O+</option>
+                  <option value={"O-"}>O-</option>
+                  {/* <option value={"oshphegus"}>Oshephegus</option> */}
+                </select>
+               </div>
               <div className="login-box-field">
-                <p>Hospital</p>
+                <p>Referred By</p>
                 <input
                   type="text"
-                  value={organisation}
-                  onChange={(e) => setorganisation(e.target.value)}
-                  placeholder="Hospital"
+                  value={referral}
+                  onChange={(e) => setReferral(e.target.value)}
+                  placeholder="Doctor / Hospital "
                 ></input>
               </div>
 
@@ -438,8 +479,6 @@ const Signin = () => {
                   <Button variant="contained" fullWidth onClick={handleSubmitSignin} disabled={load}>Verify</Button>
           </div>)
         }
-
-
 
 
       </div>

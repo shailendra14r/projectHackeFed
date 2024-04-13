@@ -1,3 +1,6 @@
+.signin *::-webkit-scrollbar{
+    display: none;
+}
 .login{
     display: flex;
     width: 100vw;

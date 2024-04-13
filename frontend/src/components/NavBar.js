@@ -185,9 +185,9 @@ const Navbar = () => {
                 Blood Donars
               </li>
             </Link>
-            <Link onClick={()=>{console.log(user.userDB.firstname)}}>
+            {/* <Link onClick={()=>{console.log(user.userDB.firstname)}}>
                 CHECK
-            </Link>
+            </Link> */}
            
             
           </ul>

@@ -44,18 +44,9 @@ const userRegisteration = async (req,res)=>{
 
 const userSignin = async (req,res)=>{
     const {
-      email,
-      otp,
-      username,
-      password,
-      firstname,
-      lastname,
-      dob,
-      designation,
-      skills,
-      gender,
-      city,
-      organisation,
+      email,password,otp,
+      firstname,lastname,gender,dob,city,state,
+      illness,organs,need,bloodGroup,referral
     } = req.body;
 
     try{ 
@@ -68,26 +59,16 @@ const userSignin = async (req,res)=>{
           })
           return;
         }
-
         if(otpresponse.otp == otp){
 
           const salt = await bcrypt.genSalt(10);
           const hashPassword = await bcrypt.hash(password, salt);
           
             let user = await User.create({
-              email,
-              username,
-              password:hashPassword,
-              firstname,
-              lastname,
-              dob,
-              gender,
-              designation,
-              skills,
-              city,
-              organisation,
+              email,password:hashPassword,otp,
+              firstname,lastname,gender,dob,city,state,
+              illness,organs,need,bloodGroup,referral
             });
-
             user.password = "*****";
             const token = createToken(user._id);
             res.cookie('codingsquad',token);

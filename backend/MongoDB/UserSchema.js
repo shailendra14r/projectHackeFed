@@ -14,9 +14,8 @@ const USER = new Schema ({
         type:String,
         default:"NA"
     },
-    organ:{
-        type:String,
-        default:"NA"
+    organs:{
+        type:Array
     },
     email: {
         type: String,
@@ -53,9 +52,21 @@ const USER = new Schema ({
         type: String,
         default:"Not Set"
     },
+    country:{
+        type:String
+    }, 
+    bloodGroup:{
+        type:String
+    },
     googleUser:{
         type:Boolean,
         default:false
+    },
+    need:{
+        type:String
+    },
+    referral:{
+        type:String
     }
 
 },{timestamps:true});

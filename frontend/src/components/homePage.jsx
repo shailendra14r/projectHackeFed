@@ -33,7 +33,7 @@ export default function MediaCard() {
           </h4>
           <h1>Total Smile kept Alive: 2043</h1>
           <Link to={"/login"}>
-            <Button variant="contained">Login</Button>
+            <Button variant="contained" sx={{color:"white"}}>Login</Button>
           </Link>
         </div>
       </div>
