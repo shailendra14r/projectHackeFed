@@ -113,7 +113,7 @@ const Navbar = () => {
                         Blood Donars
                       </Sidebar.Item>
                     </Link>
-                    <Link to={"/sharepost"}>
+                    <Link onClick={()=>localStorage.clear()}>
                       <Sidebar.Item icon={<Note size={24} />}>
                         Logout
                       </Sidebar.Item>
