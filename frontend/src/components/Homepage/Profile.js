@@ -5,7 +5,6 @@ import location_icon from "./location-icon.png"
 
 
 export default function Profile({data}) {
-  console.log(data);
   return (
     <div className="profile">
       <div className="profile-img">
@@ -19,6 +18,7 @@ export default function Profile({data}) {
             <img src={location_icon} />
             <p>{data.city}{"," + data.state}{"," + data.country}</p>
           </div>
+          <Chip className='tag' label={data.organs[0]} color="secondary" />
         </div>
         <div className="tags-contact">
           <div className="tags">
@@ -26,7 +26,7 @@ export default function Profile({data}) {
               data.illness?.map((ele)=>  <Chip className='tag' label={ele} color="secondary" />)
             }
           </div>
-          <Button className="btn button1" sx={{mx:1, my:1, minWidth: 150}} variant="contained">Contact</Button>
+          <Button className="btn button1" sx={{mx:1, my:1, maxWidth: 150}} variant="contained">Contact</Button>
         </div>
       </div>
     </div>

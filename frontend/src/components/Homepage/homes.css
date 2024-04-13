@@ -118,6 +118,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: end;
 }
 .tags-contact .tags{
     padding: 1rem;
