@@ -33,7 +33,7 @@ export default function MediaControlCard() {
       >
         <CardContent sx={{ flex: "1 0 auto" }}>
           <Typography component="div" variant="h5">
-            <h1 style={{ Color: "purple" }}>103,223</h1>
+            <h1 style={{ Color: "purple" ,fontSize:"2rem",fontWeight:"600"}} >103,223 + </h1>
             <h3 style={{ Color: "black" }}>
               men, women, and children are on the national transplant waiting
               list.
