@@ -10,6 +10,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import Home from "./components/homePage.jsx";
 import {Routes,Route} from 'react-router-dom';
 import Register from "./components/signin/Register.js";
+import DonarHome from "./components/Homepage/Home.js";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" index element={<Home></Home>}></Route>
+        <Route path="/donarhome" element={<DonarHome></DonarHome>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={ <GoogleOAuthProvider clientId="713976535576-c7c6grdnm12gjr9imqm388bp8utginil.apps.googleusercontent.com">
                  <Login></Login>
                 </GoogleOAuthProvider>

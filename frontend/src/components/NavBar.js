@@ -257,7 +257,7 @@ const Navbar = () => {
             <li className="cursor-pointer" onClick={() => navigate("/home")}>
               Home
             </li>
-            <Link to="/problems">
+            <Link to="/donarHome">
               <li className="cursor-pointer" style={{ minWidth: "4rem" }}>
               Donors
               </li>
@@ -311,20 +311,21 @@ const Navbar = () => {
           </ul>
 
           { user.user ? (
-            <Button variant="outlined" Link="/login">
-              <Link to="/Login">
-                {"Signin"}
-              </Link>
-            </Button>
-          ) : (
             <div className="flex gap-x-4">
-              <Avatar
-                sx={{ height: "30px", width: "30px" }}
-                onClick={() => navigate("/profile")}
-                src={user.userDB?.profilePicture || user.user?.profilePicture}
-                className="cursor-pointer"
-              ></Avatar>
-            </div>
+            <Avatar
+              sx={{ height: "30px", width: "30px" }}
+              onClick={() => navigate("/profile")}
+              src={user.userDB?.profilePicture || user.user?.profilePicture}
+              className="cursor-pointer"
+            ></Avatar>
+          </div>
+          ) : (
+
+             <Button variant="outlined" Link="/login">
+             <Link to="/Login">
+               {"Signin"}
+             </Link>
+           </Button>
           )}
 
           <div
