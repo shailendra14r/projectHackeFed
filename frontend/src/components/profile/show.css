@@ -1,9 +1,10 @@
 body {
-  /* background-color: #ead8c0; */
+  margin: 50px;
 }
 
 .main {
-  margin-top: 80px;
+  margin-top: 40px;
+  display: flex;
 }
 .heading-1 {
   display: flex;
@@ -18,10 +19,14 @@ body {
   border: none !important;
 }
 .about {
-  font-size: 140%;
+  font-size: 1.8rem;
   color: rgb(2, 65, 36);
 }
 .about-box {
-  margin-top: 30px;
   max-width: 700px;
+}
+.main-3 {
+  border-right: 1px solid black;
+  margin-left: 100px;
+  height: 100vh;
 }
