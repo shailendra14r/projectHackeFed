@@ -26,14 +26,23 @@ export default function MediaCard() {
         }}
       >
         <div class="background-card">
-          <h1>More donars, More hopes</h1>
+          <div class="h-1">More donars, More hopes</div>
+          <br />
+          <br />
+          <br />
           <h4>
             Every registered organ donor offers hope to people who need
             transplants – and to the families who love them
           </h4>
-          <h1>Total Smile kept Alive: 2043</h1>
+
+          <div class="h-1">Total Smile kept Alive: 2043</div>
+          <br />
+          <br />
+          <br />
           <Link to={"/login"}>
-            <Button variant="contained" sx={{color:"white"}}>Login</Button>
+            <Button variant="contained" sx={{ color: "white" }}>
+              Login
+            </Button>
           </Link>
         </div>
       </div>
@@ -122,14 +131,19 @@ export default function MediaCard() {
       </div>
       <div className="updates">
         <div className="heading ">
-          <h1>
+          <div class="h-1">
             Organ Procurement and Transplantation Network Modernization
             Initiative
-          </h1>
+          </div>
+          <br />
+          <br />
+          <br />
         </div>
         <div class="middle ">
           <Alert severity="info">
-            Updates
+            <div class="h-2"> Updates</div>
+            <br />
+
             <p>
               HRSA is sharing updates about the path forward for the OPTN
               Modernization Initiative, including the approach to securing
@@ -161,7 +175,10 @@ export default function MediaCard() {
 
       <div className="process">
         <div className="process-1 box">
-          <h1>The Sign Up process</h1>
+          <p style={{ fontSize: "2rem", fontWeight: "600" }}>
+            The Sign Up process
+          </p>
+          <br />
           <ul>
             <li>How Do I Sign Up</li>
             <li>Why Do I Sign Up</li>
@@ -169,7 +186,10 @@ export default function MediaCard() {
           </ul>
         </div>
         <div className="process-2 box">
-          <h1>Learn About Donation</h1>
+          <p style={{ fontSize: "2rem", fontWeight: "600" }}>
+            Learn About Donation
+          </p>
+          <br />
           <ul>
             <li>How Donation Works</li>
             <li>What CAn be Donated</li>

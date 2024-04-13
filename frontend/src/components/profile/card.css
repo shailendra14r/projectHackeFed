@@ -1,0 +1,11 @@
+.verify {
+  border: 1px solid rgb(20, 167, 20) !important;
+  color: rgb(20, 167, 20) !important;
+  margin-top: 6px !important;
+}
+.card-content {
+  display: flex;
+}
+body {
+  background-color: #ead8c0 !important;
+}

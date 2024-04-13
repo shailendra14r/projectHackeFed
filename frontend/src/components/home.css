@@ -35,7 +35,7 @@
 }
 .background-card h4 {
   text-align: left;
-  font-style: italic;
+  /* font-style: italic; */
   margin-bottom: 20px;
   color: rgb(5, 121, 67);
 }
@@ -82,7 +82,7 @@
   display: flex;
 }
 .box {
-  background-color: rgb(35, 35, 173) !important;
+  background-color: teal !important;
 }
 .process-1 {
   min-width: 50vw;
@@ -106,4 +106,12 @@
 }
 .box li {
   margin-bottom: 10px;
+}
+.h-1 {
+  font-size: 200%;
+  color: rgb(2, 65, 36);
+}
+.h-2 {
+  font-size: 150%;
+  color: rgb(2, 65, 36);
 }
