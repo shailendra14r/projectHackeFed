@@ -44,9 +44,7 @@ const DonarHome = () => {
         if(organ){
           obj.organs = organ;
         }
-        if(city){
-          obj.city = city;
-        }
+       
         const response = await axios.post(`${path}search_donars`,obj);
         setData(response.data);
 
@@ -60,7 +58,7 @@ const DonarHome = () => {
       <div className="left">
         <h3>SEARCH</h3>
   <div className="select_upper">
-  <TextField value={city} label="city" onChange={e=>setCity(e.target.value)} fullWidth></TextField>
+  {/* <TextField value={city} label="city" onChange={e=>setCity(e.target.value)} fullWidth></TextField> */}
   <FormControl fullWidth className="my-2">
   <InputLabel id="demo-simple-select-label" fullWidth >Organ</InputLabel>
   <Select

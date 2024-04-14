@@ -28,6 +28,23 @@ const BloodDonars = ()=>{
     getProfileDate();
   }, []);
 
+  useEffect(()=>{
+  if(bloodType != '') getBlood();
+  },[bloodType])
+
+  const getBlood = async (ele)=>{
+    try {
+      const response = await axios.post(`${path}search_donars`,{
+        bloodGroup:bloodType
+      });
+      if (response.data) {
+        setData(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
     const navigate = useNavigate();
     return <div className='blood-donars'>  
         <div className='flex full-width justify-center content-center items-center'>

@@ -27,9 +27,7 @@ const filterDonars = async (req,res)=>{
         if(city){
             query.city = city;
         }
-        if(organs){
-            query.organs = organs
-        }
+        
             console.log(query)
             const response = await User.find(query);
             console.log(response)
