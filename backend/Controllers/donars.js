@@ -19,10 +19,10 @@ const getDonarDetails = async (req,res)=>{
 };
 
 const filterDonars = async (req,res)=>{
-    const {bloodGroup,city,organ} = req.query;
-    
-    const response = await User.find({$or:[{city},{bloodGroup},{organs:{$in:[organ]}}]});
-    res.send(response); 
+        const {bloodGroup,city,organ} = req.query;
+        const response = await User.find({$and:[{city:(city || undefined)},{bloodGroup:bloodGroup || undefined}]});
+        res.send(response);
 }
+
 
 module.exports = {getDonars,getDonarDetails,filterDonars};

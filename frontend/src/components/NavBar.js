@@ -235,7 +235,7 @@ const Navbar = () => {
             <div className="flex gap-x-4">
               <Avatar
                 sx={{ height: "30px", width: "30px" }}
-                onClick={() => navigate("/show")}
+                onClick={() => navigate("/show?id="+user.user._id)}
                 src={user.userDB?.profilePicture || user.user?.profilePicture}
                 className="cursor-pointer"
               ></Avatar>
