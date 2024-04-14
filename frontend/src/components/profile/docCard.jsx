@@ -16,6 +16,8 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import ManIcon from "@mui/icons-material/Man";
+import SchoolIcon from "@mui/icons-material/School";
+
 export default function MediaControlCard() {
   const theme = useTheme();
   return (
@@ -89,6 +91,17 @@ export default function MediaControlCard() {
                 }}
               >
                 <ManIcon /> Male
+              </Typography>
+              <Typography
+                component="div"
+                variant="h5"
+                style={{
+                  fontSize: "1rem",
+                  color: "rgb(2, 65, 36)",
+                  marginTop: "10px",
+                }}
+              >
+                <SchoolIcon /> MBBS,MD
               </Typography>
             </div>
             <div class="card-content-2" style={{ marginTop: "50px" }}>
