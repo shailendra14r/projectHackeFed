@@ -15,6 +15,7 @@ import AddLocationIcon from "@mui/icons-material/AddLocation";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
+import ManIcon from "@mui/icons-material/Man";
 export default function MediaControlCard() {
   const theme = useTheme();
   return (
@@ -71,7 +72,7 @@ export default function MediaControlCard() {
                 &nbsp; 47 years
               </Typography>
               <Typography
-                style={{ marginBottom: "5px", color: "rgb(2, 65, 36)" }}
+                style={{ marginBottom: "10px", color: "rgb(2, 65, 36)" }}
                 variant="subtitle1"
                 color="text.secondary"
                 component="div"
@@ -84,28 +85,34 @@ export default function MediaControlCard() {
                 style={{
                   fontSize: "1rem",
                   color: "rgb(2, 65, 36)",
-                  marginTop: "20px",
-                  marginLeft: "10px",
+                  marginTop: "10px",
                 }}
               >
-                Male
+                <ManIcon /> Male
               </Typography>
             </div>
             <div class="card-content-2" style={{ marginTop: "50px" }}>
               <Typography
-                style={{ marginTop: "5px", marginBottom: "5px" }}
+                style={{
+                  marginTop: "5px",
+                  marginBottom: "5px",
+                  color: "green",
+                  fontSize: "1.1rem",
+                  fontWeight: "800",
+                }}
                 variant="subtitle1"
                 color="text.secondary"
                 component="div"
-              ></Typography>
+              >
+                Hospital:Vedanta
+              </Typography>
+
               <Typography
-                style={{ marginBottom: "5px", color: "rgb(2, 65, 36)" }}
-                variant="subtitle1"
-                color="text.secondary"
-                component="div"
-              ></Typography>
-              <Typography
-                style={{ marginBottom: "5px", color: "red" }}
+                style={{
+                  marginBottom: "5px",
+                  color: "red",
+                  fontWeight: "800",
+                }}
                 variant="subtitle1"
                 color="text.secondary"
                 component="div"

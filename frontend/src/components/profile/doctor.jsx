@@ -36,22 +36,20 @@ export default function show() {
               <InfoIcon /> &nbsp;About
             </div>
             <br />
-            My name is Utkarsh Singh, and I need a urgent heart for transplant ,
-            I am 57 years old and my blood group is A+. Living with this
-            condition has been incredibly challenging for me and my loved ones.
-            Despite all medical interventions and treatments, my heart function
-            has deteriorated to a point where a transplant is imperative for me
-            to have any chance of leading a healthy life.
+            Myself Dr. Vivek Sharma is a dedicated and compassionate neurologist
+            practicing at Vedanta. With a profound commitment to patient care
+            and a passion for neurology,I brings a wealth of knowledge and
+            expertise to the field. Graduating with honors from BHU, completed
+            extensive training in neurology, specializing in the diagnosis and
+            treatment of neurological disorders.
             <br />
-            <br />
-            I understand the complexities and risks associated with organ
-            transplantation, but I am willing to undergo any necessary
-            procedures and adhere to all post-transplant protocols to ensure a
-            successful outcome. Please consider my case with utmost urgency and
-            include me on the transplant waiting list.
-            <br />
-            <br />I am hopeful that with your expertise and assistance, I can
-            receive the life-saving transplant I desperately need.
+            <br />I am known for my meticulous approach to patient care, taking
+            the time to listen to patients' concerns and develop personalized
+            treatment plans tailored to their unique needs. Whether it's
+            managing complex neurological conditions, conducting thorough
+            diagnostic evaluations, or providing empathetic support to patients
+            and their families, dedicated to delivering the highest standard of
+            care.
           </div>
         </div>
       </div>
