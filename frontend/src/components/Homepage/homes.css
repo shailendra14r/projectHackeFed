@@ -130,7 +130,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
 }
+
 .select-btn{
     width: 100%;
     margin: 10px 0px;

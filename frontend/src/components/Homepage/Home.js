@@ -6,7 +6,7 @@ import donor3 from "./Rectangle 28.png";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
+// import InputLabel from "@mui/material/InputLabel";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import arrow from "./Vector.png";
@@ -48,15 +48,16 @@ const DonarHome = () => {
       <div className="left">
         <h3>SEARCH</h3>
   <div className="select_upper">
-  <TextField value={city} label="city" onChange={e=>setCity(e.target.value)}></TextField>
+  <TextField value={city} label="city" onChange={e=>setCity(e.target.value)} fullWidth></TextField>
   <FormControl fullWidth className="my-2">
-  <InputLabel id="demo-simple-select-label">Organ</InputLabel>
+  <InputLabel id="demo-simple-select-label" fullWidth >Organ</InputLabel>
   <Select
     sx={{color:"black"}}
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     value={organ}
     label={"Age"}
+    fullWidth
     onChange={(e)=>setOrgans(e.target.value)}
     >
     <MenuItem value={10}>Ten</MenuItem>
@@ -64,13 +65,14 @@ const DonarHome = () => {
     <MenuItem value={30}>Thirty</MenuItem>
   </Select>
 </FormControl>
-<FormControl>
-  <InputLabel id="demo-simple-select-label">Blood Group</InputLabel>
+<FormControl fullWidth>
+  <InputLabel id="demo-simple-select-label" fullWidth>Blood Group</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     value={bloodGroup}
     label="Blood Group"
+    fullWidth
     onChange={(e)=>setBloodgeoup(e.target.value)}
     >
     <MenuItem value={10}>Ten</MenuItem>

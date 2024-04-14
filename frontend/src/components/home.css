@@ -72,11 +72,13 @@
 }
 .updates {
   min-width: 100vw;
-  max-height: 500px;
   margin-top: 50px !important;
+  box-sizing: border-box;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 .heading {
@@ -136,4 +138,12 @@
 .h-2 {
   font-size: 150%;
   color: rgb(2, 65, 36);
+}
+.update-hackfed{
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  max-height: max-content;
 }

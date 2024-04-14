@@ -128,7 +128,7 @@ export default function MediaCard() {
           </Card>
         </div>
       </div>
-      <div className="updates row">
+      <div className="updates update-hackfed row">
         <div className="heading col-8 offset-2" style={{maxWidth:"700px"}} >
           <div class="h-1" >
             Organ Procurement and Transplantation Network Modernization

@@ -20,6 +20,7 @@ const getDonarDetails = async (req,res)=>{
 
 const filterDonars = async (req,res)=>{
     const {bloodGroup,city,organ} = req.query;
+    
     const response = await User.find({$or:[{city},{bloodGroup},{organs:{$in:[organ]}}]});
     res.send(response); 
 }
