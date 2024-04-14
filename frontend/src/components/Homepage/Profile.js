@@ -2,12 +2,13 @@ import React from 'react';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import location_icon from "./location-icon.png"
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile({data}) {
   console.log(data);
+  const navigate = useNavigate();
   return (
-    <div className="profile">
+    <div className="profile" onClick={()=> navigate(`/show?id=${data?._id}`)}>
       <div className="profile-img">
         <img src={data?.profilePicture} />
       </div>
@@ -19,6 +20,7 @@ export default function Profile({data}) {
             <img src={location_icon} />
             <p>{data.city}{"," + data.state}{"," + data.country}</p>
           </div>
+          <Chip className='tag' label={data.organs[0]} color="secondary" />
         </div>
         <div className="tags-contact">
           <div className="tags">
@@ -26,7 +28,7 @@ export default function Profile({data}) {
               data.illness?.map((ele)=>  <Chip className='tag' label={ele} color="secondary" />)
             }
           </div>
-          <Button className="btn button1" sx={{mx:1, my:1, minWidth: 150}} variant="contained">Contact</Button>
+          <Button className="btn button1" sx={{mx:1, my:1, maxWidth: 150}} variant="contained">Contact</Button>
         </div>
       </div>
     </div>

@@ -118,10 +118,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: end;
 }
 .tags-contact .tags{
     padding: 1rem;
 }
 .tag{
     margin-left: 3px;
+}
+.select_upper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.select-btn{
+    width: 100%;
+    margin: 10px 0px;
 }

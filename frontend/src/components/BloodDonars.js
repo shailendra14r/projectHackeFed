@@ -46,7 +46,7 @@ const BloodDonars = ()=>{
   </Select>
         </div>
         {data?.map((user) => (
-        <div className="search-user py-[12px]" onClick={()=>{navigate(`/user/${user.username}`)}}>
+        <div className="search-user py-[12px]" onClick={()=>{navigate(`/show?id=${user?._id}`)}}>
           <div className="search-avatar">
             <Avatar src={user.profilePicture}></Avatar>
           </div>

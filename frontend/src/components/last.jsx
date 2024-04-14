@@ -21,6 +21,7 @@ export default function MediaControlCard() {
         alignItems: "center",
         backgroundColor: "#DFF5FF",
       }}
+      className="flex flex-column justify-center"
     >
       <Box
         sx={{
@@ -31,9 +32,9 @@ export default function MediaControlCard() {
           minHeight: "200px",
         }}
       >
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography component="div" variant="h5">
-            <h1 style={{ Color: "purple" ,fontSize:"2rem",fontWeight:"600"}} >103,223 + </h1>
+        <CardContent sx={{ flex: "1 0 auto" }} className="flex justify-center">
+          <Typography component="div" variant="h5" className="text-center">
+            <h1 style={{ Color: "purple" ,fontSize:"2rem",fontWeight:"600"}} className="my-4">103,223 + </h1>
             <h3 style={{ Color: "black" }}>
               men, women, and children are on the national transplant waiting
               list.
@@ -43,7 +44,8 @@ export default function MediaControlCard() {
       </Box>
       <CardMedia
         component="img"
-        sx={{ width: 151 }}
+        sx={{ width: 151}}
+        className="mb-4"
         image="https://w.ndtvimg.com/sites/26/2016/09/02125449/organ-donation1.jpg"
         alt="Live from space album cover"
       />
