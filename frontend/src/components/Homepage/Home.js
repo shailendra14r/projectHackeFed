@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./homes.css";
-import donor1 from "./Rectangle 19.png";
-import donor2 from "./Rectangle 25.png";
-import donor3 from "./Rectangle 28.png";
-import Stack from "@mui/material/Stack";
-import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-// import InputLabel from "@mui/material/InputLabel";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import arrow from "./Vector.png";
 import InputLabel from '@mui/material/InputLabel';
-import { countries, bloodTypes, organs } from "../../utils/HomeData.js";
+import { bloodTypes, organs } from "../../utils/HomeData.js";
 import Profile from "./Profile.js";
 import axios from "axios";
 import path from "../../path.js";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Input } from "@mui/material";
+import Select from '@mui/material/Select';
 
 
 const DonarHome = () => {
@@ -56,13 +48,11 @@ const DonarHome = () => {
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     value={organ}
-    label={"Age"}
+    label={"Organ"}
     fullWidth
     onChange={(e)=>setOrgans(e.target.value)}
     >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
+      { organs.map((val)=> <MenuItem value={val}>{val}</MenuItem>) }
   </Select>
 </FormControl>
 <FormControl fullWidth>
@@ -75,9 +65,7 @@ const DonarHome = () => {
     fullWidth
     onChange={(e)=>setBloodgeoup(e.target.value)}
     >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
+      { bloodTypes.map((val)=> <MenuItem value={val}>{val}</MenuItem>) }
   </Select>
 </FormControl>
 </div>
