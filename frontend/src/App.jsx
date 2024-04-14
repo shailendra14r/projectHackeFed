@@ -12,7 +12,8 @@ import { Routes, Route } from "react-router-dom";
 import Register from "./components/signin/Register.js";
 import DonarHome from "./components/Homepage/Home.js";
 import Show from "./components/profile/show.jsx";
-import BloodDonars from './components/BloodDonars.js'
+import BloodDonars from "./components/BloodDonars.js";
+import Doctor from "./components/profile/doctor.jsx";
 
 function App() {
   return (
@@ -30,10 +31,14 @@ function App() {
             </GoogleOAuthProvider>
           }
         ></Route>
-        <Route path="/blood_donars" element={<BloodDonars></BloodDonars>}></Route>
+        <Route
+          path="/blood_donars"
+          element={<BloodDonars></BloodDonars>}
+        ></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/signup" element={<SignUP></SignUP>}></Route>
         <Route path="/show" element={<Show></Show>}></Route>
+        <Route path="/doctor" element={<Doctor></Doctor>}></Route>
       </Routes>
     </div>
   );

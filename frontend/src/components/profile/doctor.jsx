@@ -1,18 +1,18 @@
-import "./show.css";
+import "./doctor.css";
 import Button from "@mui/material/Button";
 import Card from "./card.jsx";
 import InfoIcon from "@mui/icons-material/Info";
-import { Link } from "react-router-dom";
+import DocCard from "./docCard.jsx";
 
 export default function show() {
   return (
     <>
-      <div className="heading-1">Profile Details</div>
+      <div className="heading-1">Doctor Details</div>
       <div className="main">
         <div className="main-1">
           <div className="card row">
             <div className="col-8 offset-1">
-              <Card />
+              <DocCard />
             </div>
           </div>
           <div className="contact offset-3">
@@ -27,19 +27,6 @@ export default function show() {
             >
               Contact Now
             </Button>
-            <Link to="/doctor">
-              <Button
-                style={{
-                  marginTop: "30px",
-                  marginLeft: "40px",
-                  backgroundColor: "green",
-                  color: "white",
-                }}
-                variant="contained"
-              >
-                Doctor's Details
-              </Button>
-            </Link>
           </div>
         </div>
         <div class="main-3"></div>
