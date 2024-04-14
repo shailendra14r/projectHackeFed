@@ -39,7 +39,7 @@ export default function MediaControlCard() {
             border: "1px solid black",
             padding: "5px",
           }}
-          image="https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg"
+          image="https://t3.ftcdn.net/jpg/02/60/04/08/360_F_260040863_fYxB1SnrzgJ9AOkcT0hoe7IEFtsPiHAD.jpg"
           alt="Live from space album cover"
         />
         <Button className="verify" variant="outlined">
@@ -53,9 +53,9 @@ export default function MediaControlCard() {
               <Typography
                 component="div"
                 variant="h5"
-                style={{ fontSize: "200%" }}
+                style={{ fontSize: "200%", minWidth: "300px" }}
               >
-                <b style={{ color: "rgb(2, 65, 36)" }}>Utkarsh Singh</b>
+                <b style={{ color: "rgb(2, 65, 36)" }}>Dr Vivek Sharma</b>
               </Typography>
               <Typography
                 style={{
@@ -68,7 +68,7 @@ export default function MediaControlCard() {
                 component="div"
               >
                 <PersonIcon />
-                &nbsp; 57 years
+                &nbsp; 47 years
               </Typography>
               <Typography
                 style={{ marginBottom: "5px", color: "rgb(2, 65, 36)" }}
@@ -76,19 +76,22 @@ export default function MediaControlCard() {
                 color="text.secondary"
                 component="div"
               >
-                <AddLocationIcon /> Noida,UP
+                <AddLocationIcon /> Mumbai,India
+              </Typography>
+              <Typography
+                component="div"
+                variant="h5"
+                style={{
+                  fontSize: "1rem",
+                  color: "rgb(2, 65, 36)",
+                  marginTop: "20px",
+                  marginLeft: "10px",
+                }}
+              >
+                Male
               </Typography>
             </div>
             <div class="card-content-2" style={{ marginTop: "50px" }}>
-              {/* <Typography
-                component="div"
-                variant="h5"
-                style={{ fontSize: "1.1rem", color: "rgb(2, 65, 36)" }}
-              >
-                <ul>
-                  <li>Male</li>
-                </ul>
-              </Typography>
               <Typography
                 style={{ marginTop: "5px", marginBottom: "5px" }}
                 variant="subtitle1"
@@ -100,21 +103,16 @@ export default function MediaControlCard() {
                 variant="subtitle1"
                 color="text.secondary"
                 component="div"
-              >
-                <ul>
-                  <li>Suffering from Diabeties</li>
-                </ul>
-              </Typography>
+              ></Typography>
               <Typography
                 style={{ marginBottom: "5px", color: "red" }}
                 variant="subtitle1"
                 color="text.secondary"
                 component="div"
               >
-                <ul>
-                  <li>Blood grp : A+</li>
-                </ul> */}
-              <div class="list">
+                Years of Experience: 15 years
+              </Typography>
+              {/* <div class="list">
                 <ul>
                   <li style={{ fontSize: "1.1rem", color: "rgb(2, 65, 36)" }}>
                     Male
@@ -126,8 +124,7 @@ export default function MediaControlCard() {
                     Blood Group:A+
                   </li>
                 </ul>
-              </div>
-              {/* </Typography> */}
+              </div> */}
             </div>
           </div>
           <Box
@@ -140,7 +137,7 @@ export default function MediaControlCard() {
             }}
           >
             <VolunteerActivismIcon />
-            &nbsp; Heart, Liver, Eyes
+            &nbsp;Department: Neurologist
           </Box>
         </CardContent>
       </Box>
