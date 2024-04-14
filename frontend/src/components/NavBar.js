@@ -89,13 +89,13 @@ const Navbar = () => {
                 Navodit
               </span>
               <div onClick={() => setDrawerOpen(!isDrawerOpen)}>
-                <Link to={"/sharepost"}>
+                <Link to={"/home"}>
                   <Sidebar.Item icon={<Note size={24} />}>Home</Sidebar.Item>
                 </Link>
-                <Link to={"/sharepost"}>
+                <Link to={"/donarHome"}>
                   <Sidebar.Item icon={<Note size={24} />}>Donar</Sidebar.Item>
                 </Link>
-                <Link to={"/sharepost"}>
+                <Link to={"/blood_donars"}>
                   <Sidebar.Item icon={<Note size={24} />}>
                     Blood Donars
                   </Sidebar.Item>
@@ -103,7 +103,7 @@ const Navbar = () => {
                 <Link onClick={() => localStorage.clear()}>
                   <Sidebar.Item icon={<Note size={24} />}>Logout</Sidebar.Item>
                 </Link>
-                <Link to={"/sharepost"}>
+                <Link to={"/show?id=" + user?.user?._id}>
                   <Sidebar.Item icon={<Note size={24} />}>Profile</Sidebar.Item>
                 </Link>
               </div>
@@ -235,7 +235,7 @@ const Navbar = () => {
             <div className="flex gap-x-4">
               <Avatar
                 sx={{ height: "30px", width: "30px" }}
-                onClick={() => navigate("/show?id="+user.user._id)}
+                onClick={() => navigate("/show?id=" + user.user._id)}
                 src={user.userDB?.profilePicture || user.user?.profilePicture}
                 className="cursor-pointer"
               ></Avatar>

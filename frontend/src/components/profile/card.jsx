@@ -22,21 +22,21 @@ import axios from "axios";
 export default function MediaControlCard() {
   const theme = useTheme();
   const [serchParams] = useSearchParams();
-  const id = serchParams.get('id');
-  const [data,setData] = useState(false);
-  
-  const getDonarDetails = async ()=>{
-    try{
+  const id = serchParams.get("id");
+  const [data, setData] = useState(false);
+
+  const getDonarDetails = async () => {
+    try {
       const response = await axios.get(`${path}donar_details?id=${id}`);
       setData(response.data);
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     getDonarDetails();
-  },[]);
+  }, []);
 
   return (
     <Card
@@ -76,7 +76,9 @@ export default function MediaControlCard() {
                 variant="h5"
                 style={{ fontSize: "200%" }}
               >
-                <b style={{ color: "rgb(2, 65, 36)" }}>{data?.firstname + " " + data?.lastname}</b>
+                <b style={{ color: "rgb(2, 65, 36)" }}>
+                  {data?.firstname + " " + data?.lastname}
+                </b>
               </Typography>
               <Typography
                 style={{
@@ -97,7 +99,9 @@ export default function MediaControlCard() {
                 color="text.secondary"
                 component="div"
               >
-                <AddLocationIcon />{data?.city + " " + data?.state }<br></br> <span className="ml-5">{data?.country}</span>
+                <AddLocationIcon />
+                {data?.city + " " + data?.state}
+                <br></br> <span className="ml-5">{data?.country}</span>
               </Typography>
             </div>
             <div class="card-content-2" style={{ marginTop: "50px" }}>
@@ -138,18 +142,17 @@ export default function MediaControlCard() {
               <div class="list">
                 <ul>
                   <li style={{ fontSize: "1.1rem", color: "rgb(2, 65, 36)" }}>
-                  {data?.gender}
+                    {data?.gender}
                   </li>
-                  <li style={{ marginBottom: "5px", color: "rgb(2, 65, 36)" }} className="flex flex-wrap">
-                  {
-                    data?.illness ? "Suffering from" : ""
-                  }
-                  
-                  {
-                    data?.illness?.map((ele)=>{
-                      return <span className="bold mx-2">{ele}</span>
-                    })
-                  }
+                  <li
+                    style={{ marginBottom: "5px", color: "rgb(2, 65, 36)" }}
+                    className="flex flex-wrap"
+                  >
+                    {data?.illness ? "Suffering from" : ""}
+
+                    {data?.illness?.map((ele) => {
+                      return <span className="bold mx-2">{ele}</span>;
+                    })}
                   </li>
                   <li style={{ marginBottom: "5px", color: "red" }}>
                     Blood Group:{data?.bloodGroup}
@@ -169,7 +172,7 @@ export default function MediaControlCard() {
             }}
           >
             <VolunteerActivismIcon />
-            &nbsp; {data?.organs?.map(ele=>ele)}
+            &nbsp; {data?.organs?.map((ele) => ele + " ")}
           </Box>
         </CardContent>
       </Box>
