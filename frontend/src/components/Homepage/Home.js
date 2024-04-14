@@ -16,9 +16,9 @@ import Select from '@mui/material/Select';
 const DonarHome = () => {
   const [data, setData] = useState([]);
  
-  const [city,setCity] = useState('');
-  const [bloodGroup,setBloodgeoup] = useState("A+");
-  const [organ,setOrgans] = useState("Liver");
+  const [city,setCity] = useState(false);
+  const [bloodGroup,setBloodgeoup] = useState(false);
+  const [organ,setOrgans] = useState(false);
 
   const getProfileDate = async () => {
     try {
@@ -34,6 +34,26 @@ const DonarHome = () => {
   useEffect(() => {
     getProfileDate();
   }, []);
+
+  const handleFilter = async ()=>{
+      try{
+        let obj = {};
+        if(bloodGroup){
+          obj.bloodGroup = bloodGroup;
+        }
+        if(organ){
+          obj.organs = organ;
+        }
+        if(city){
+          obj.city = city;
+        }
+        const response = await axios.post(`${path}search_donars`,obj);
+        setData(response.data);
+
+      }catch(err){
+
+      }
+  }
 
   return (
     <div className="Homepage">
@@ -74,6 +94,7 @@ const DonarHome = () => {
           className="btn button1"
           sx={{ my: 1, minWidth: 150 }}
           variant="contained"
+          onClick={()=>handleFilter()}
           >
           <p>Filter</p>
           <img src={arrow} />
@@ -82,6 +103,7 @@ const DonarHome = () => {
           className="btn button2"
           sx={{ my: 1, minWidth: 150 }}
           variant="outlined"
+          onClick={()=>getProfileDate()}
           >
           Reset
         </Button>

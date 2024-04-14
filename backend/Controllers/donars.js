@@ -13,16 +13,29 @@ const getDonars = async (req,res)=>{
 
 const getDonarDetails = async (req,res)=>{
     const {id} = req.query;
-    console.log(id);
     const response = await User.findById(id);
     res.send(response);
 };
 
 const filterDonars = async (req,res)=>{
-        const {bloodGroup,city,organ} = req.query;
-        const response = await User.find({$and:[{city:(city || undefined)},{bloodGroup:bloodGroup || undefined}]});
-        res.send(response);
-}
+        const {bloodGroup,city,organs} = req.body;
+        let query = {};
+     
+        if(bloodGroup){
+            query.bloodGroup  = bloodGroup;
+        }
+        if(city){
+            query.city = city;
+        }
+        if(organs){
+            query.organs = organs
+        }
+            console.log(query)
+            const response = await User.find(query);
+            console.log(response)
+            res.send(response);
+    }
+
 
 
 module.exports = {getDonars,getDonarDetails,filterDonars};

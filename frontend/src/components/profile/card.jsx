@@ -169,7 +169,7 @@ export default function MediaControlCard() {
             }}
           >
             <VolunteerActivismIcon />
-            &nbsp; {data?.organs?.map(ele=>ele)}
+            &nbsp; {data?.organs?.map(ele=>ele + " ")}
           </Box>
         </CardContent>
       </Box>

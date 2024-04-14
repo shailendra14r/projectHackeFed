@@ -25,6 +25,6 @@ router.post('/usergoogle',googlesigninUsername);
 //GET 
 router.get('/donars',getDonars);
 router.get('/donar_details',getDonarDetails);
-router.get('/search_donars',filterDonars);
+router.post('/search_donars',filterDonars);
 
 module.exports = router;
